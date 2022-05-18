@@ -22,11 +22,6 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
-    def avatar(self, size):
-        digest = md5(self.email.lower().encode('utf-8')).hexdigest()
-        return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
-            digest, size)
-
     def followed_posts(self):
         own = Post.query.filter_by(user_id=self.id)
         return own.order_by(Post.timestamp.desc())

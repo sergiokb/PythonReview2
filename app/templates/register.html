@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block content %}
     <h1>Register</h1>
     <form action="" method="post">
@@ -25,7 +24,6 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
-
         <p>{{ form.submit() }}</p>
     </form>
 {% endblock %}

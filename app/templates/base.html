@@ -5,12 +5,10 @@
     </head>
     <body>
         <div>
-            <a href="{{ url_for('index') }}">Create</a>
-            {% if current_user.is_anonymous %}
-            <a href="{{ url_for('login') }}">Login</a>
-            {% else %}
-            <a href="{{ url_for('user', username=current_user.username) }}"><b>My Notes</b></a>
-            <a href="{{ url_for('logout') }}">Logout</a>
+            {% if not current_user.is_anonymous %}
+            <h3><a href="{{ url_for('index') }}">Create</a></h3>
+            <h3><a href="{{ url_for('user', username=current_user.username) }}"><b>My Notes</b></a></h3>
+            <h3><a href="{{ url_for('logout') }}">Logout</a></h3>
             {% endif %}
         </div>
         {% block content %}{% endblock %}
