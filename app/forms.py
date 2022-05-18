@@ -4,6 +4,15 @@ from wtforms.validators import ValidationError, DataRequired, Email, Length
 from app.models import User
 
 
+class EmptyForm(FlaskForm):
+    submit = SubmitField('Add')
+
+
+class NoteForm(FlaskForm):
+    post = TextAreaField('New note:', validators=[DataRequired(), Length(min=1, max=160)])
+    submit = SubmitField('Add')
+
+
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
@@ -25,13 +34,3 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')
-
-
-class EmptyForm(FlaskForm):
-    submit = SubmitField('Add')
-
-
-class NoteForm(FlaskForm):
-    post = TextAreaField('New note:', validators=[
-        DataRequired(), Length(min=1, max=160)])
-    submit = SubmitField('Add')
