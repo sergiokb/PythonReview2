@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+    <table>
+            <tr><img src="{{ url_for('static', filename='img/writers.jpg') }}"></tr>
+            <tr>
+                <h1><big><u>{{ user.username }}</u></big></h1>
+            </tr>
+    </table>
+    <hr>
+    {% for note in notes %}
+        {% include 'note.html' %}
+    {% endfor %}
+{% endblock %}
