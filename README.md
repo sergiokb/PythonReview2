@@ -1,7 +1,7 @@
 # Website for notes
 #### Hello, dear reader!    
 This application will give you a personal account for taking notes.  
-You are able to register, and fill your page with any genius ideas you have!
+You are able to register, and fill your page with any genius ideas you have!  
 Video: https://drive.google.com/drive/folders/1-iMpxPtuI4qeH0khDT69EJB5MXYgXL0q
 
 ### Installing 
